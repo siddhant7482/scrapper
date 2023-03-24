@@ -7,7 +7,7 @@ import openpyxl
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
-
+# Use different api key if the quota runs out
 api_key = "AIzaSyDUV3SI1qvvoSiX2_uN5ISpj58zbIpcxPw" #FunFluential
 #api_key = "AIzaSyBL_Zd218ZvalHi-1BM_6_5uNnBmEiAjMA" #yathanshnaagar    
 #api_key = "AIzaSyCSba1fh3nJ5QYd8qqmk6sIPri95_Aj7Ho" #yathanshdhingra
@@ -16,6 +16,7 @@ api_key = "AIzaSyDUV3SI1qvvoSiX2_uN5ISpj58zbIpcxPw" #FunFluential
 youtube = build("youtube", "v3", developerKey=api_key)
 
 
+# Enter the keyword you want to search
 query = "craftswithkids"
 
 
@@ -72,7 +73,7 @@ while search_response is not None:
 
         print(f"Channel {channel_name} successfully written to {excel_file}")
 
-    # check if there are more pages of results
+    # Check if there are more pages of results
     if "nextPageToken" in search_response:
         next_page_token = search_response["nextPageToken"]
         try:
